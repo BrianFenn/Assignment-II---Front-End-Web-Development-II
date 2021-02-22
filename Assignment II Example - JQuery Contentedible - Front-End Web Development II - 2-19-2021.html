@@ -56,9 +56,6 @@ Riptutorial. (n.d.). JQuery Sorting elements. Retrieved February 19, 2021, from 
 -----------------------------------------------------------------------------------------------------------
 -->
 
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Assignment II - Contentedible</title>
@@ -70,27 +67,53 @@ Riptutorial. (n.d.). JQuery Sorting elements. Retrieved February 19, 2021, from 
 </style>	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $(document).ready(function(){
+  $("#add_american_menu_button").click(function(){
+    $('#menu').append('<li><p contenteditable="true">' + $('#new_item_input_box').val());
+        $('#new_item_input_box').val('');
+       });
+	});
+
+$(document).ready(function(){
+  $("#add_menu_category_button").click(function(){
+    $('#menu-categories').append('<li><p contenteditable="true">' + $('#new_category_input_box').val());
+	$('#new_category_input_box').val('');
+    });
+	});
+
+$(document).ready(function(){
+    
+    $('#menu-categories').sortable({cancel: ':input,button,[contenteditable]'});
+    $('#menu').sortable({cancel: ':input,button,[contenteditable]'});
+});
+
+</script>
+
 <h1>Menu</h1>
 
 <h3>American</h3>
 <ul id="menu">
-  <li contenteditable="true">Vegetable Burger</li>
-  <li contenteditable="true">Fridos de Americanos</li>
-  <li contenteditable="true">Water</li>
+  <li><p contenteditable="true">Vegetable Burger</li></p>
+  <li><p contenteditable="true">Fridos de Americanos</li></p>
+  <li><p contenteditable="true">Water</li></p>
 </ul>
+<input id="new_item_input_box" label>
+
+<button id="add_american_menu_button">Add Item</button>
 
 <h2>Categories</h2>
 <ul id="menu-categories">
-  <li contenteditable="true">Breakfast</li>
-  <li contenteditable="true">Lunch</li>
-  <li contenteditable="true">Dinner</li>
+  <li><p contenteditable="true">Breakfast</li></p>
+  <li><p contenteditable="true">Lunch</li></p>
+  <li><p contenteditable="true">Dinner</li></p>
 </ul>
 
-
-<script>
-var $
-</script>
-
+<input id="new_category_input_box" label >
+<button id="add_menu_category_button">Add Category</button>
 
 </body>
 </html>
